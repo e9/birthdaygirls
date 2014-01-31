@@ -4,6 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
+	    "sunra/php-simple-html-dom-parser": "v1.5.0",
 		"laravel/framework": "4.1.*"
 	},
 	"autoload": {
