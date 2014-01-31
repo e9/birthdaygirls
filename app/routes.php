@@ -17,3 +17,4 @@ Route::bind('girl', function($value, $route)
 });
 
 Route::get('/girl/{girl}', 'GirlController@show');
+Route::get('/', 'BirthdayController@today');
