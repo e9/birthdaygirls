@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function()
+Route::bind('girl', function($value, $route)
 {
-	return View::make('hello');
+    return Girl::where('name', $value)->first();
 });
+
+Route::get('/girl/{girl}', 'GirlController@show');
