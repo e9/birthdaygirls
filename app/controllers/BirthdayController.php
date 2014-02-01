@@ -10,7 +10,7 @@ class BirthdayController extends \BaseController {
 		$month = date('n', $now);
 		$day   = date('j', $now);
 
-		$girls = Girl::all(); //where('month', $month)->where('day', $day)->get();
+		$girls = Girl::where('month', $month)->where('day', $day)->get();
 
 		$this->layout->content = View::make('birthday.today', compact('month', 'day', 'girls'));
 	}
