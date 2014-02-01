@@ -39,30 +39,19 @@ class CrawlerCommand extends Command {
 	public function fire()
 	{
 		$pages = array(
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%82%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%8B%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%95%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%9F%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%AA%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%AF%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%BE%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%82%84%E8%A1%8C',
-			'AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%82%89%E3%83%BB%E3%82%8F%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%82%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%8B%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%95%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%9F%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%AA%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%AF%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%81%BE%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%82%84%E8%A1%8C',
+			'/wiki/AV%E5%A5%B3%E5%84%AA%E4%B8%80%E8%A6%A7_%E3%82%89%E3%83%BB%E3%82%8F%E8%A1%8C',
 		);
 
 		foreach ( $pages as $page ) {
-			$html = HtmlDomParser::file_get_html("http://ja.wikipedia.org/wiki/{$page}");
-
-			foreach ( $html->find('h3') as $h3 ) {
-				$ul = $h3->nextSibling();
-				if ( $ul->tag == 'ul' ) foreach ( $ul->find('li[!id]') as $li ) {
-					if ( ! $dom = $li->find('a[href^=/wiki/]', 0) ) continue;
-					$name = html_entity_decode($dom->plaintext);
-					$href = $dom->getAttribute('href');
-					$this->info($name);
-					$this->getBirthdayFromWikipedia($name, $href);
-				}
-			}
+			$this->getGirlFromWikipedia($page);
 		}
 	}
 
@@ -90,9 +79,19 @@ class CrawlerCommand extends Command {
 		);
 	}
 
-	private function getGirlsFromWikipedia($path)
+	private function getGirlFromWikipedia($path)
 	{
-
+		$html = HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
+		foreach ( $html->find('h3') as $h3 ) {
+			$ul = $h3->nextSibling();
+			if ( $ul->tag == 'ul' ) foreach ( $ul->find('li[!id]') as $li ) {
+				if ( ! $dom = $li->find('a[href^=/wiki/]', 0) ) continue;
+				$name = html_entity_decode($dom->plaintext);
+				$href = $dom->getAttribute('href');
+				$this->info($name);
+				$this->getBirthdayFromWikipedia($name, $href);
+			}
+		}
 	}
 
 	private function getBirthdayFromWikipedia($name, $path)
