@@ -92,6 +92,7 @@ class CrawlerCommand extends Command {
 				$this->getBirthdayFromWikipedia($name, $href);
 			}
 		}
+		$html->clear();
 	}
 
 	private function getBirthdayFromWikipedia($name, $path)
@@ -110,6 +111,7 @@ class CrawlerCommand extends Command {
 			$girl->save();
 			$this->info($girl);
 		}
+		$html->clear();
 	}
 
 }
