@@ -14,7 +14,7 @@ class FC2Movie {
 		{
 			$html = @HtmlDomParser::file_get_html("http://video.fc2.com/a/movie_search.php?ordertype=2&perpage=10&keyword=".urlencode($name));
 			if (!$html) return array();
-			return array_map(function($a){return new static('', $a->href);}, $html->find('.video_list_renew .video_info_right h3 a'));
+			return array_map(function($a){return new FC2Movie('', $a->href);}, $html->find('.video_list_renew .video_info_right h3 a'));
 		});
 	}
 
