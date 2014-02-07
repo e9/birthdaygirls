@@ -5,21 +5,21 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Sunra\PhpSimple\HtmlDomParser;
 
-class CrawlerCommand extends Command {
+class BirthdayCrawlerCommand extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'command:crawl';
+	protected $name = 'command:crawl:birthday';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Crawling in wikipedia.';
+	protected $description = "Crawling girl's birthday in wikipedia.";
 
 	/**
 	 * Create a new command instance.
@@ -101,10 +101,13 @@ class CrawlerCommand extends Command {
 		$html = HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
 		foreach ( $html->find('th') as $th ) {
 			if ( !preg_match('/生年月日/', $th->plaintext) ) continue;
+			$kana = $html->find('caption small', 0);
+			$kana = $kana ? $kana->plaintext : "";
 			$birthday = $th->nextSibling()->plaintext;
 			if ( !preg_match('/([0-9]+)年([0-9]+)月([0-9]+)日/', $birthday, $matches) ) continue;
 
 			$girl = Girl::firstOrNew(compact('name'));
+			$girl->kana  = $kana;
 			$girl->year  = (int) $matches[1];
 			$girl->month = (int) $matches[2];
 			$girl->day   = (int) $matches[3];
