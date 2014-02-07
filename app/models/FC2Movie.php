@@ -10,7 +10,7 @@ class FC2Movie {
 	{
 		$minutes = 60 * 12;
 
-		return Cache::remember("fc2.{$name}", $minutes, function()
+		return Cache::remember("fc2.{$name}", $minutes, function()use($name)
 		{
 			$html = @HtmlDomParser::file_get_html("http://video.fc2.com/a/movie_search.php?ordertype=2&perpage=10&keyword=".urlencode($name));
 			if (!$html) return array();
