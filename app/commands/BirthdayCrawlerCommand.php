@@ -81,7 +81,8 @@ class BirthdayCrawlerCommand extends Command {
 
 	private function getGirlFromWikipedia($path)
 	{
-		$html = HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
+		$html = @HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
+		if (!$html) return;
 		foreach ( $html->find('h3') as $h3 ) {
 			$ul = $h3->nextSibling();
 			if ( $ul->tag == 'ul' ) foreach ( $ul->find('li[!id]') as $li ) {
@@ -97,8 +98,8 @@ class BirthdayCrawlerCommand extends Command {
 
 	private function getBirthdayFromWikipedia($name, $path)
 	{
-		if (!$name || !$path) return;
-		$html = HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
+		$html = @HtmlDomParser::file_get_html("http://ja.wikipedia.org{$path}");
+		if (!$name || !$path || !$html) return;
 		foreach ( $html->find('th') as $th ) {
 			if ( !preg_match('/生年月日/', $th->plaintext) ) continue;
 			$kana = $html->find('caption small', 0);
