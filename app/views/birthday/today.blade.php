@@ -6,9 +6,11 @@
 
 	<div class="grid_8 alpha">
 		<?php $movies = $girl->movies(); ?>
+		<p>
 		@if ($movie = @$movies[0])
-		<p><script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="620" h="380" charset="UTF-8"></script></p>
+		<script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="620" h="380" charset="UTF-8"></script>
 		@endif
+		</p>
 		@if ($movie = @$movies[1])
 		<div class="grid_4 alpha"><script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="300" h="200" charset="UTF-8"></script></div>
 		@endif
