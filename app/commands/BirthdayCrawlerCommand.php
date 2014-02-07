@@ -102,7 +102,7 @@ class BirthdayCrawlerCommand extends Command {
 		if (!$name || !$path || !$html) return;
 		foreach ( $html->find('th') as $th ) {
 			if ( !preg_match('/生年月日/', $th->plaintext) ) continue;
-			$kana = $html->find('caption small', 0);
+			$kana = $html->find('caption *', 0);
 			$kana = $kana ? $kana->plaintext : "";
 			$birthday = $th->nextSibling()->plaintext;
 			if ( !preg_match('/([0-9]+)年([0-9]+)月([0-9]+)日/', $birthday, $matches) ) continue;
