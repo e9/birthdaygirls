@@ -13,7 +13,7 @@
 <body>
 <div class="container_12">
 <h1 class="grid_10 prefix_1 suffix_1"><a href="/">バースデーガールズ</a></h1>
-{{$content}}
+@yield('content')
 </div>
 </body>
 </html>

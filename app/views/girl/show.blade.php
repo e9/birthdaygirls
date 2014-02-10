@@ -1,3 +1,6 @@
+@extends('layouts.master')
+
+@section('content')
 <h2 class="grid_10 prefix_1 suffix_1">{{ $girl->month }}月{{ $girl->day }}日生まれの{{ $girl->name }}さん</h2>
 
 <div class="grid_10 prefix_1 suffix_1">
@@ -30,3 +33,4 @@
 		<p><img data-src="holder.js/140x140"></p>
 	</div>
 </div>
+@endsection

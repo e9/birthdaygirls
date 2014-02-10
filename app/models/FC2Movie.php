@@ -3,24 +3,33 @@
 use Sunra\PhpSimple\HtmlDomParser;
 
 class FC2Movie {
-	public $title;
 	public $url;
+	public $tl;
+	public $sj;
 
 	public static function search_by_name($name)
 	{
-		$minutes = 60 * 12;
+		$minutes = 60 * 25;
 
 		return Cache::remember("fc2.{$name}", $minutes, function()use($name)
 		{
-			$html = @HtmlDomParser::file_get_html("http://video.fc2.com/a/movie_search.php?ordertype=2&perpage=10&keyword=".urlencode($name));
-			if (!$html) return array();
-			return array_map(function($a){return new FC2Movie('', $a->href);}, $html->find('.video_list_renew .video_info_right h3 a'));
+			$html = HtmlDomParser::file_get_html("http://video.fc2.com/a/movie_search.php?ordertype=2&perpage=10&keyword=".urlencode($name));
+
+			$res = array_map(function($a){
+				preg_match('/video([0-9]+)-thumbnail/', $a->find('img', 0)->src, $matches);
+				return new FC2Movie($a->href, $a->title, $matches[1]);
+			}, $html->find('.video_list_renew .video_thumb_small a'));
+
+			$html->clear();
+
+			return $res;
 		});
 	}
 
-	public function __construct($title, $url)
+	public function __construct($url, $tl, $sj)
 	{
-		$this->title = $title;
-		$this->url   = $url;
+		$this->url = $url;
+		$this->tl  = $tl;
+		$this->sj  = $sj;
 	}
 }

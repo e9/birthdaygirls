@@ -1,0 +1,1 @@
+<script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{{ $movie->url }}}" tl="{{{ $movie->tl }}}" sj="{{ $movie->sj }}" w="{{ $w }}" h="{{ $h }}" charset="UTF-8"></script>

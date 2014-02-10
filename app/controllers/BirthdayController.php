@@ -2,8 +2,6 @@
 
 class BirthdayController extends \BaseController {
 
-	protected $layout = 'layouts.master';
-
 	public function today()
 	{
 		$now   = time();
@@ -13,7 +11,7 @@ class BirthdayController extends \BaseController {
 
 		$girls = Girl::where('month', $month)->where('day', $day)->get();
 
-		$this->layout->content = View::make('birthday.today', compact('year', 'month', 'day', 'girls'));
+		return View::make('girl.today', compact('year', 'month', 'day', 'girls'));
 	}
 
 }

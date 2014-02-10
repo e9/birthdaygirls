@@ -1,21 +1,23 @@
+@extends('layouts.master')
+
+@section('content')
 <h2 class="grid_10 prefix_1 suffix_1">{{ $month }}月{{ $day }}日生まれの{{ count($girls) }}人のバースデーガールたち</h2>
 
-@foreach ($girls as $girl)
+@foreach($girls as $girl)
 <div class="grid_10 prefix_1 suffix_1">
 	<h3><a href="girl/{{ $girl->name }}">ハッピーバースデー！{{ $girl->name}}さん<br>{{ $year - $girl->year }}歳の誕生日、おめでとうございます。</a></h3>
 
 	<div class="grid_8 alpha">
-		<?php $movies = $girl->movies(); ?>
 		<p>
-		@if ($movie = @$movies[0])
-		<script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="620" h="380" charset="UTF-8"></script>
+		@if ($movie = array_get($girl->movies(), 0))
+		@include('girl.fc2', array('movie' => $movie, 'w' => 620, 'h' => 380))
 		@endif
 		</p>
-		@if ($movie = @$movies[1])
-		<div class="grid_4 alpha"><script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="300" h="200" charset="UTF-8"></script></div>
+		@if ($movie = array_get($girl->movies(), 1))
+		<div class="grid_4 alpha">@include('girl.fc2', array('movie' => $movie, 'w' => 300, 'h' => 200))</div>
 		@endif
-		@if ($movie = @$movies[2])
-		<div class="grid_4 alpha"><script src="http://static.fc2.com/video/js/outerplayer.min.js" url="{{ $movie->url }}" w="300" h="200" charset="UTF-8"></script></div>
+		@if ($movie = array_get($girl->movies(), 2))
+		<div class="grid_4 omega">@include('girl.fc2', array('movie' => $movie, 'w' => 300, 'h' => 200))</div>
 		@endif
 	</div>
 
@@ -30,3 +32,5 @@
 </div>
 
 @endforeach
+
+@endsection
