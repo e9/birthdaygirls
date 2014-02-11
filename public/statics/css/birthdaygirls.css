@@ -3,7 +3,51 @@ a {
 	color: inherit;
 }
 
+h1 {
+	background-color: #000;
+	color: #fff;
+}
+
+h1 a {
+	width: 780px;
+	display: block;
+	margin: auto;
+}
+
+h2 {
+	background-color: #FE81FD;
+	color: #fff;
+	padding: 10px;
+}
+
+h3 {
+	background-color: #fff;
+	color: #000;
+	margin-right: 20px;
+	padding: 5px 20px;
+}
+
 .banner {
 	text-align: center;
 }
 
+.section {
+	background-color: #FE81FD;
+	padding-top: 20px;
+}
+
+.section p {
+	margin: 20px;
+}
+
+p.see-more {
+	text-align: right;
+	margin-right: 0;
+	padding-bottom: 20px;
+}
+
+p.see-more a {
+	background-color: #fff;
+	display: inline-block;
+	padding: 5px 60px;
+}

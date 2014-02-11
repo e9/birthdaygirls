@@ -1,0 +1,1 @@
+<p class="banner"><img data-src="holder.js/728x90"></p>
