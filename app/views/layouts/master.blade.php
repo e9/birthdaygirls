@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="/statics/css/960.css">
 <link rel="stylesheet" href="/statics/css/birthdaygirls.css">
 <script src="//imsky.github.io/holder/holder.js"></script>
-<title>バースデーガール</title>
+<title>バースデーガールズ</title>
+<meta name="description" content="今日が誕生日のAV女優を毎日、紹介">
 </head>
 <body>
 <h1><a href="/">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a></h1>
