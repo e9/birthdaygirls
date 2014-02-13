@@ -37,14 +37,25 @@ class TwitterCommand extends Command {
 	 */
 	public function fire()
 	{
+		$max = 10;
+
 		$now   = time();
 		$year  = date('Y', $now);
 		$month = date('n', $now);
 		$day   = date('j', $now);
 
-		$girls = Girl::where('month', $month)->where('day', $day)->get();
+		$girls = Girl::where('month', $month)->where('day', $day)->get()->toArray();
+
+		shuffle($girls); // TODO
+
+		$count = count($girls);
+
+		$girls = array_slice($girls, 0, $max);
 
 		$str = implode(array_map(function($name){return "{$name}さん、";}, array_pluck($girls, 'name')));
+
+		if ($count > $max) $str.="ほか".($count - $max)."名の皆様、";
+		
 		$str .= "お誕生日おめでとうございます。";
 		Twitter::postTweet(array('status' => $str, 'format' => 'json'));
 	}
