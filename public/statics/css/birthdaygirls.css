@@ -29,6 +29,7 @@ h3 {
 
 .banner {
 	text-align: center;
+	margin: auto;
 }
 
 .section {
@@ -50,4 +51,8 @@ p.see-more a {
 	background-color: #fff;
 	display: inline-block;
 	padding: 5px 60px;
+}
+
+.content > p{
+	margin: auto;
 }
