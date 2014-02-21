@@ -16,5 +16,5 @@ Route::bind('girl', function($value, $route)
     return Girl::where('name', $value)->first();
 });
 
+Route::get('/', 'GirlController@today');
 Route::get('/girl/{girl}', 'GirlController@show');
-Route::get('/', 'BirthdayController@today');

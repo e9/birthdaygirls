@@ -2,6 +2,18 @@
 
 class GirlController extends \BaseController {
 
+	public function today()
+	{
+		$now   = time();
+		$year  = date('Y', $now);
+		$month = date('n', $now);
+		$day   = date('j', $now);
+
+		$girls = Girl::where('month', $month)->where('day', $day)->get()->all();
+
+		return View::make('girl.today', compact('year', 'month', 'day', 'girls'));
+	}
+	
 	public function show($girl)
 	{
 		$now   = time();
