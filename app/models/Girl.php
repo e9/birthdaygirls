@@ -6,8 +6,7 @@ class Girl extends Eloquent {
 
 	static public function comp($a, $b)
 	{
-		if ($a == $b) return 0;
-		return ($a > $b) ? -1 : 1;
+		return $b->size() - $b->size();
 	}
 
 	public function movies($n = null)
@@ -29,5 +28,10 @@ class Girl extends Eloquent {
 	public function maxSize()
 	{
 		return max(count($this->movies()), count($this->affiliates()));
+	}
+
+	public function size()
+	{
+		return count($this->movies()) + count($this->affiliates());
 	}
 }
