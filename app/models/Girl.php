@@ -2,10 +2,32 @@
 class Girl extends Eloquent {
 	protected $guarded = array('id');
 	private $movies;
+	private $affiliates;
 
-	public function movies()
+	static public function comp($a, $b)
 	{
-		$this->movies = $this->movies ?: FC2Movie::search_by_name($this->name);
-		return $this->movies;
+		if ($a == $b) return 0;
+		return ($a > $b) ? -1 : 1;
+	}
+
+	public function movies($n = null)
+	{
+		if (is_null($this->movies)) {
+			$this->movies = FC2Movie::search_by_name($this->name);
+		}
+		return array_get($this->movies, $n);
+	}
+
+	public function affiliates($n = null)
+	{
+		if (is_null($this->affiliates)) {
+			$this->affiliates = MGStage::search_by_name($this->name);
+		}
+		return array_get($this->affiliates, $n);
+	}
+
+	public function maxSize()
+	{
+		return max(count($this->movies()), count($this->affiliates()));
 	}
 }

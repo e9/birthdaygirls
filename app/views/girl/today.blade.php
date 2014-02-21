@@ -11,7 +11,9 @@
 			<p>@include('girl.fc2', array('movie' => $movie, 'w' => 740, 'h' => 448))</p>
 			@endif
 
-			<p><img data-src="holder.js/740x448"></p>
+			@if ($affiliate = array_get($girl->affiliates(), 0))
+				<p>@include('girl.mgstage', array('affiliate' => $affiliate))</p>
+			@endif
 
 			<p class="see-more"><a href="/girl/{{ $girl->name }}">もっと見る</a></p>
 		</div>

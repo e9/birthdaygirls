@@ -1,4 +1,4 @@
-<p class="banner">
+<div class="banner">
 <!-- i-mobile for PC client script -->
 <script type="text/javascript">
     imobile_pid = "26552"; 
@@ -7,4 +7,4 @@
     imobile_height = 90;
 </script>
 <script type="text/javascript" src="https://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>	
-</p>
+</div>

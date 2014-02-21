@@ -11,6 +11,10 @@ class GirlController extends \BaseController {
 
 		$girls = Girl::where('month', $month)->where('day', $day)->get()->all();
 
+		$girls = array_filter($girls, function($girl){return $girl->maxSize();});
+
+		usort($girls, array('Girl', 'comp'));
+		
 		return View::make('girl.today', compact('year', 'month', 'day', 'girls'));
 	}
 	
