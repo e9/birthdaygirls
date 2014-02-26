@@ -1,1 +1,1 @@
-<a href="{{ $affiliate->url }}"><img src="{{ $affiliate->img }}" style="max-width: 740px;"></a>
+<a href="{{ $affiliate->url }}" class="mgstage"><img src="{{ $affiliate->img }}"></a>

@@ -1,58 +1,53 @@
-a {
-	text-decoration: none;
-	color: inherit;
+.container {
+	width: 940px !important;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-h1 {
-	background-color: #000;
-	color: #fff;
+.navigation-bar a.brand {
+	width: 400px;
+	height: 90px !important;
+	background-image: url(/statics/img/logo.png);
+	background-size: 400px 90px;
+	background-repeat: no-repeat;
+	text-indent: -999999em;
 }
 
-h1 a {
-	width: 780px;
-	display: block;
-	margin: auto;
+.section {
+	padding: 0 20px;
 }
 
 h2 {
-	background-color: #FE81FD;
-	color: #fff;
-	padding: 10px;
+	margin: 0 !important;
+	padding: 20px !important;
+	vertical-align: middle;
 }
 
 h3 {
-	background-color: #fff;
-	color: #000;
-	margin-right: 20px;
-	padding: 5px 20px;
+	margin: 20px 0 20px -20px !important;
+	padding: 20px !important;
+}
+
+.girllink {
+	margin: 20px -20px 20px 0;
+	padding: 10px 60px;
 }
 
 .banner {
 	text-align: center;
-	margin: auto;
+	margin: 20px auto;
 }
 
-.section {
-	background-color: #FE81FD;
-	padding-top: 20px;
+.footer p {
+	padding-top: 10px;
 }
 
-.section p {
-	margin: 20px;
+.mgstage img {
+	max-width: 740px;
 }
 
-p.see-more {
-	text-align: right;
-	margin-right: 0;
-	padding-bottom: 20px;
-}
-
-p.see-more a {
-	background-color: #fff;
-	display: inline-block;
-	padding: 5px 60px;
-}
-
-.content > p{
-	margin: auto;
+.mgstage:hover img {
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	-ms-filter: “alpha( opacity=80 )”;
 }
