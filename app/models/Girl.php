@@ -32,6 +32,7 @@ class Girl extends Eloquent {
 
 	public function size()
 	{
-		return (int) $this->movies() + count($this->affiliates());
+		Log::info($this->name.', movie: '.count($this->movies()).', affiliates: '.count($this->affiliates()).', movie: '.(int)$this->movies());
+		return (int)$this->movies() + count($this->affiliates());
 	}
 }
