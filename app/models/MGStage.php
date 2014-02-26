@@ -8,9 +8,7 @@ class MGStage {
 
 	public static function search_by_name($name)
 	{
-		$minutes = 60 * 25;
-
-		return Cache::remember("mgs.{$name}", $minutes, function()use($name)
+		return Cache::remember("mgs.{$name}", App::environment('production') ? 60*25 : 0, function()use($name)
 		{
 			$context = stream_context_create(array( 
 				'http'=>array( 

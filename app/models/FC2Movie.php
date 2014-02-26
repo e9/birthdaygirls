@@ -9,9 +9,7 @@ class FC2Movie {
 
 	public static function search_by_name($name)
 	{
-		$minutes = 60 * 25;
-
-		return Cache::remember("fc2.{$name}", $minutes, function()use($name)
+		return Cache::remember("fc2.{$name}", App::environment('production') ? 60*25 : 0, function()use($name)
 		{
 			$html = HtmlDomParser::file_get_html("http://video.fc2.com/a/movie_search.php?ordertype=2&perpage=3&keyword=".urlencode($name));
 
