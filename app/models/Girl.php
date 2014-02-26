@@ -6,7 +6,7 @@ class Girl extends Eloquent {
 
 	static public function comp($a, $b)
 	{
-		return $b->size() - $b->size();
+		return $b->size() - $a->size();
 	}
 
 	public function movies($n = null)
