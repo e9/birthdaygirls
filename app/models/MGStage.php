@@ -17,7 +17,7 @@ class MGStage {
 				) 
 			)); 
 
-			$url = "http://www.mgstage.com/list/search/".urlencode($name)."/1/table/rank/all/";
+			$url = "http://www.mgstage.com/list/search/".urlencode($name)."/1/table/rank/all/?_=".time();
 			$html = HtmlDomParser::file_get_html($url, false, $context);
 			
 			if (!$html->find('.pager') || !$html->find('.title_search_result', 0)) return array();
