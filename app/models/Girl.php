@@ -9,6 +9,13 @@ class Girl extends Eloquent {
 		return $b->size() - $a->size();
 	}
 
+	public function prepare()
+	{
+		$this->movies();
+		$this->affiliates();
+		return $this;
+	}
+
 	public function movies($n = null)
 	{
 		if (is_null($this->movies)) {
