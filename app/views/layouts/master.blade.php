@@ -7,8 +7,15 @@
 <link rel="stylesheet" href="/statics/css/birthdaygirls.css">
 <script src="/statics/js/metro.min.js"></script>
 <script src="//imsky.github.io/holder/holder.js"></script>
-<title>バースデーガールズ</title>
-<meta name="description" content="今日が誕生日のAV女優を毎日、紹介">
+<title>バースデーガール｜{{ $subtitle or ""}}</title>
+<meta name="keywords" content="AV,AV女優,誕生日,18禁,fc2,xvideo,dmm">
+@if(isset($description))<meta name="description" content="{{ $description }}">@endif
+<meta name="author" content="birthdaygirls">
+<meta property="og:title" content="バースデーガール｜今日が誕生日のAV女優を毎日、紹介" />
+<meta property="og:type" content="website" />
+@if(isset($description))<meta property="og:description" content="{{ $description }}" />@endif
+<meta property="og:url" content="http://birthdaygirls.info" />
+<meta property="og:image" content="http://birthdaygirls.info/statics/img/ogp.jpg" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
