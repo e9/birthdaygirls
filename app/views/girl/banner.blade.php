@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner bg-white">
 <!-- i-mobile for PC client script -->
 <script type="text/javascript">
     imobile_pid = "26552"; 
