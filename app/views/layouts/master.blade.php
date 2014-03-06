@@ -14,7 +14,7 @@
 <meta property="og:title" content="バースデーガール｜今日が誕生日のAV女優を毎日、紹介" />
 <meta property="og:type" content="website" />
 @if(isset($description))<meta property="og:description" content="{{ $description }}" />@endif
-<meta property="og:url" content="http://birthdaygirls.info" />
+<meta property="og:url" content="http://birthdaygirls.info{{ $root or '' }}" />
 <meta property="og:image" content="http://birthdaygirls.info/statics/img/ogp.jpg" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,7 +31,7 @@
 
 <div class="navigation-bar dark">
     <div class="navigation-bar-content container">
-        <a href="/" class="element brand">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a>
+        <a href="{{ $root or '/' }}" class="element brand">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a>
         @if (Request::is('/'))
         <div class="element input-element place-right">@include('girl.social')</div>
         @endif

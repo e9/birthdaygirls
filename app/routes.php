@@ -18,3 +18,6 @@ Route::bind('girl', function($value, $route)
 
 Route::get('/', 'GirlController@today');
 Route::get('/girl/{girl}', 'GirlController@show');
+
+Route::get('/dmm', 'DmmController@today');
+Route::get('/dmm/girl/{girl}', 'DmmController@show');
