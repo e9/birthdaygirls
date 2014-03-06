@@ -12,7 +12,7 @@
 	@foreach($girls as $girl)
 		<div class="section">
 			<h3 class="bg-white"><a href="/dmm/girl/{{ $girl->name }}">ハッピーバースデー！{{ $girl->name}}さん<br>{{ $year - $girl->year }}歳の誕生日、おめでとうございます。</a></h3>
-			<img src="holder.js/740x448/text:ジャケ写">
+			<img data-src="holder.js/740x448/text:thumbnail">
 			<div class="girllink">
 			<a href="/dmm/girl/{{ $girl->name }}" class="bg-white place-right girllink">もっと見る</a>
 			</div>
