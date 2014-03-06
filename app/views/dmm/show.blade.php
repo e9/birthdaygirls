@@ -12,7 +12,7 @@
 <div class="offset1 span10 bg-lightPink">
 	<div class="section">
 		<h3 class="bg-white">ハッピーバースデー！{{ $girl->name}}さん<br>{{ $year - $girl->year }}歳の誕生日、おめでとうございます。</h3>
-		<img src="holder.js/740x448">
+		<img src="holder.js/740x448/text:ジャケ写">
 		@include('girl.banner')
 	</div>
 </div>
