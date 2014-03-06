@@ -24,8 +24,9 @@
 			<div class="girllink">
 			<a href="/girl/{{ $girl->name }}" class="bg-white place-right girllink">もっと見る</a>
 			</div>
+			
+			@include('girl.banner')
 		</div>
-		@include('girl.banner')
 	@endforeach
 </div>
 </div>
