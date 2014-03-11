@@ -32,6 +32,10 @@ h3 {
 	margin: 20px 0;
 }
 
+.section .content:last-child {
+	margin-bottom: 0;
+}
+
 .girllink {
 	overflow: hidden;
 	margin-right: -20px;
