@@ -29,7 +29,7 @@ h3 {
 }
 
 .content {
-	margin: 20px 0 0 0;
+	margin: 20px 0;
 }
 
 .girllink {
@@ -55,4 +55,8 @@ h3 {
 	opacity:0.8;
 	filter:alpha(opacity=80);
 	-ms-filter: “alpha( opacity=80 )”;
+}
+
+.banner {
+	text-align: center;
 }
