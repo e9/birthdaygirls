@@ -13,34 +13,32 @@
 	text-indent: -999999em;
 }
 
-.section {
-	padding: 0 20px;
-}
-
 h2 {
-	margin: 0 !important;
 	padding: 20px !important;
-	vertical-align: middle;
+	margin: 0 !important;
 }
 
 h3 {
-	margin: 20px 0 20px -20px !important;
 	padding: 20px !important;
+	margin: 0 !important;
+	margin-left: -20px !important;
+}
+
+.section {
+	padding: 20px;
+}
+
+.content {
+	margin: 20px 0 0 0;
 }
 
 .girllink {
 	overflow: hidden;
+	margin-right: -20px;
 }
 
 .girllink a {
-	margin: 20px -20px 0 0;
-	padding: 10px 60px;
-}
-
-.banner {
-	text-align: center;
-	margin: 20px -20px;
-	padding: 20px 0;
+	padding: 10px 80px;
 }
 
 .footer p {
@@ -48,8 +46,9 @@ h3 {
 }
 
 .mgstage img {
-	max-width: 740px;
-	margin-top: 20px;
+	display: block;
+	max-width: 900px;
+	margin: 0 auto;
 }
 
 .mgstage:hover img {
