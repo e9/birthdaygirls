@@ -33,6 +33,8 @@ class DMM {
 			}
 		}
 
+		xml_parser_free($xml);
+
 		return $res;
 		});
 	}
