@@ -3,6 +3,7 @@ class Girl extends Eloquent {
 	protected $guarded = array('id');
 	private $movies;
 	private $affiliates;
+	private $dmms;
 
 	static public function comp($a, $b)
 	{
@@ -13,7 +14,16 @@ class Girl extends Eloquent {
 	{
 		$this->movies();
 		$this->affiliates();
+		$this->dmms();
 		return $this;
+	}
+
+	public function dmms($n = null)
+	{
+		if (is_null($this->dmms)) {
+			$this->dmms = DMM::search_by_name($this->name);
+		}
+		return array_get($this->dmms, $n);
 	}
 
 	public function movies($n = null)

@@ -49,13 +49,13 @@ h3 {
 	padding-top: 10px;
 }
 
-.mgstage img {
+.content a img {
 	display: block;
-	max-width: 900px;
+	width: 100%;
 	margin: 0 auto;
 }
 
-.mgstage:hover img {
+.content a:hover img {
 	opacity:0.8;
 	filter:alpha(opacity=80);
 	-ms-filter: “alpha( opacity=80 )”;
