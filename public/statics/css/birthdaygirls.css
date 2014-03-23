@@ -28,6 +28,10 @@ h3 {
 	padding: 20px;
 }
 
+.section + .section {
+	margin-top: -20px;
+}
+
 .content {
 	margin: 20px 0;
 }

@@ -15,9 +15,8 @@
 
 		@foreach ($girl->dmms() as $thumbnail)
 		@include('dmm.thumbnail', array('thumbnail' => $thumbnail))
-		@endforeach
-
 		@include('girl.banner')
+		@endforeach
 	</div>
 </div>
 </div>
