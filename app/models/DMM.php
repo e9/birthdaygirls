@@ -33,8 +33,6 @@ class DMM {
 			}
 		}
 
-		xml_parser_free($xml);
-
 		return $res;
 		});
 	}
@@ -42,7 +40,7 @@ class DMM {
 
 	public function __construct($url, $img)
 	{
-		$this->url = $url;
-		$this->img = $img;
+		$this->url = (string) $url;
+		$this->img = (string) $img;
 	}
 }
