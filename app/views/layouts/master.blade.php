@@ -32,7 +32,7 @@
 </head>
 <body class="metro">
 
-<div class="navigation-bar dark">
+<div class="navigation-bar bg-black">
     <div class="navigation-bar-content container">
         <a href="{{{ $root or '/' }}}" class="element brand input-element">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a>
         @if (Request::is('/') || Request::is('dmm'))

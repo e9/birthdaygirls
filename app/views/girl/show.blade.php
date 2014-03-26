@@ -4,6 +4,7 @@
 <div class="row">
 <h2 class="bg-lightPink fg-white" style="position: relative;">
 ハッピーバースデー！{{{ $girl->name}}}さん
+<div class="place-right"><a class="button danger" href="/dmm">DMM動画埋め込み版へ</a></div>
 <div class="place-right">@include('girl.social', array('oneline' => true))</div>
 </h2>
 </div>

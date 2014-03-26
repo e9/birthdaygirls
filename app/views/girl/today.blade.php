@@ -4,6 +4,7 @@
 <div class="row">
 <h2 class="bg-lightPink fg-white">
 {{{ $month }}}月{{{ $day }}}日生まれの@if (count($girls) == 1)バースデーガール@else{{{ count($girls) }}}人のバースデーガールたち@endif
+<div class="place-right"><a class="button danger" href="/dmm">DMM動画埋め込み版へ</a></div>
 </h2>
 </div>
 
