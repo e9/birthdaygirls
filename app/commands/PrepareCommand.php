@@ -47,6 +47,7 @@ class PrepareCommand extends Command {
 		$girls = Girl::where('month', $month)->where('day', $day)->get()->all();
 		foreach ($girls as $girl) {
 			$this->info($girl->prepare()->name);
+			sleep(60);
 		}
 	}
 
