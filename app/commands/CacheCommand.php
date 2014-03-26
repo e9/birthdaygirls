@@ -39,9 +39,11 @@ class CacheCommand extends Command {
 	{
 		$key = $this->argument('type').'.'.$this->argument('name');
 		$cache = Cache::get($key);
-		$this->info($cache);
+		$this->info($key);
+		$this->info(print_r($cache, 1));
 		if ($this->confirm('clear? [yes|no]')) {
 			Cache::forget($key);
+			$this->info('cleared.');
 		}
 	}
 
