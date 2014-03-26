@@ -40,8 +40,11 @@ class DMM_Movie {
 				) 
 			)); 
 
-			$url = 'http://www.dmm.co.jp'.$http_header['Location'];
+			Log::info(print_r($http_header, 1));
+			$url = array_get((array)$http_header['Location'], 0);
+			if (preg_match('/^\//', $url)) $url = 'http://www.dmm.co.jp'.$url;
 			Log::info($url);
+			
 			$html = HtmlDomParser::file_get_html($url, false, $context);
 
 			$res = array_map(function($li){

@@ -31,7 +31,7 @@ class Girl extends Eloquent {
 	public function dmmAffiliates($n = null)
 	{
 		if (is_null($this->dmmAffiliates)) {
-			$this->dmmAffiliates = DMM::search_by_name($this->name);
+			$this->dmmAffiliates = DMM_Affiliate::search_by_name($this->name);
 		}
 		return array_get($this->dmmAffiliates, $n);
 	}
