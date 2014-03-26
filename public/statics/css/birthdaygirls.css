@@ -52,10 +52,15 @@ h3 {
 
 .girllink a {
 	padding: 10px 80px;
+	font-weight: bold;
 }
 
 .footer p {
 	padding-top: 10px;
+}
+
+.footer .grid {
+	margin-bottom: 0 !important;
 }
 
 .content a img {
@@ -74,7 +79,11 @@ h3 {
 	text-align: center;
 }
 
-.social_button .fb-like {
-	vertical-align: top;
-	margin-top: 1px;
+.social_button .fb-like, .social_button iframe {
+	vertical-align: text-bottom;
 }
+
+a.darklink:link    { color: rgba(0, 0, 0, 0.8) !important }
+a.darklink:visited { color: rgba(0, 0, 0, 0.8) !important }
+a.darklink:hover   { color: rgba(0, 0, 0, 0.6) !important }
+a.darklink:active  { color: rgba(0, 0, 0, 1.0) !important }

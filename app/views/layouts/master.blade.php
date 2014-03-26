@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/statics/css/metro-bootstrap.css">
 <link rel="stylesheet" href="/statics/css/birthdaygirls.css">
+{{--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="/statics/js/metro.min.js"></script>
 <script src="//imsky.github.io/holder/holder.js"></script>
-<title>バースデーガール｜{{ $subtitle or ""}}</title>
+--}}
+<title>バースデーガール｜{{{@$subtitle}}}</title>
 <meta name="keywords" content="AV,AV女優,誕生日,18禁,fc2,xvideo,dmm">
-@if(isset($description))<meta name="description" content="{{ $description }}">@endif
+@if(isset($description))<meta name="description" content="{{{ $description }}}">@endif
 <meta name="author" content="birthdaygirls">
 <meta property="og:title" content="バースデーガール｜今日が誕生日のAV女優を毎日、紹介" />
 <meta property="og:type" content="website" />
-@if(isset($description))<meta property="og:description" content="{{ $description }}" />@endif
-<meta property="og:url" content="http://birthdaygirls.info{{ $root or '' }}" />
+@if(isset($description))<meta property="og:description" content="{{{ $description }}}" />@endif
+<meta property="og:url" content="http://birthdaygirls.info{{{ $root or '' }}}" />
 <meta property="og:image" content="http://birthdaygirls.info/statics/img/ogp.jpg" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,24 +34,32 @@
 
 <div class="navigation-bar dark">
     <div class="navigation-bar-content container">
-        <a href="{{ $root or '/' }}" class="element brand input-element">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a>
+        <a href="{{{ $root or '/' }}}" class="element brand input-element">バースデーガールズ <small>今日が誕生日のAV女優を毎日、紹介</small></a>
         @if (Request::is('/') || Request::is('dmm'))
         <div class="element input-element place-right">@include('girl.social')</div>
         @endif
     </div>
 </div>
 
-<div class="container grid main">
+<div class="container grid">
 @yield('content')
 </div>
 
-<div class="navigation-bar dark footer">
-    <p class="text-center fg-white">&copy;birthdaygirls</p>
-    <div class="navigation-bar-content container text-center">
-        <div class="element input-element" style="float: none; display: inline-block;">
-            @include('girl.social')
-        </div>
+<div class="footer bg-black">
+  <div class="container grid">
+    <div class="row">
+      <div class="span6">
+        <p class="fg-white">ハッピーバースデーの気持ちでオナニーしよう。<br>&copy;バースデーガール</p>
+      </div>
+      <div class="span3 offset3">
+      @if (@$root == '/dmm')
+        <p class="text-right"><a href="https://affiliate.dmm.com/api/"><img src="http://pics.dmm.com/af/web_service/r18_88_35.gif" width="88" height="35" alt="WEB SERVICE BY DMM.R18" /></a></p>
+      @else
+        <p class="text-right"><a class="button danger" href="/dmm">DMM動画埋め込み版<br>バースデーガールへ</a></p>
+      @endif
+      </div>
     </div>
+  </div>
 </div>
 
 <div id="fb-root"></div>

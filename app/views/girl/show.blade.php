@@ -3,14 +3,14 @@
 @section('content')
 <div class="row">
 <h2 class="bg-lightPink fg-white" style="position: relative;">
-ハッピーバースデー！{{ $girl->name}}さん
-<div class="place-right" style="position: absolute; right: 5px; top: 0;">@include('girl.social')</div>
+ハッピーバースデー！{{{ $girl->name}}}さん
+<div class="place-right">@include('girl.social', array('oneline' => true))</div>
 </h2>
 </div>
 
 <div class="row">
 	<div class="section bg-lightPink">
-		<h3 class="bg-white">ハッピーバースデー！{{ $girl->name}}さん<br>{{ $year - $girl->year }}歳の誕生日、おめでとうございます。</h3>
+		<h3 class="bg-white">ハッピーバースデー！{{{ $girl->name}}}さん<br>{{{ $year - $girl->year }}}歳の誕生日、おめでとうございます。</h3>
 
 		@for ($i = 0; $i < $girl->maxSize(); $i++)
 			@if ($movie = $girl->movies($i))
