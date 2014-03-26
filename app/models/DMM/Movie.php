@@ -7,8 +7,8 @@ class DMM_Movie {
 
 	public static function search_by_name($name)
 	{
-		// return Cache::remember("dmm.movie.{$name}", App::environment('production') ? 60*25 : 0, function()use($name)
-		// {
+		return Cache::remember("dmm.movie.{$name}", App::environment('production') ? 60*25 : 0, function()use($name)
+		{
 			// http://www.dmm.co.jp/search/?category=sample_litevideo&searchstr=sakuramana&analyze=V1EBDVYFUwE_&redirect=1&sort=&limit=30&view=package&enc=UTF-8&commit=%E6%A4%9C%E7%B4%A2
 
 			$url  = "http://www.dmm.co.jp/search?";
@@ -52,7 +52,7 @@ class DMM_Movie {
 			$html->clear();
 
 			return $res;
-		// });
+		});
 	}
 
 	public function __construct($cid)
