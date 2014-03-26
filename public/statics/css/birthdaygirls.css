@@ -5,10 +5,10 @@
 }
 
 .navigation-bar a.brand {
-	width: 400px;
+	width: 480px;
 	height: 90px !important;
 	background-image: url(/statics/img/logo.png);
-	background-size: 400px 90px;
+	background-size: 480px 90px;
 	background-repeat: no-repeat;
 	text-indent: -999999em;
 }
