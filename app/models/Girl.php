@@ -3,7 +3,8 @@ class Girl extends Eloquent {
 	protected $guarded = array('id');
 	private $movies;
 	private $affiliates;
-	private $dmms;
+	private $dmmMovies;
+	private $dmmAffiliates;
 
 	static public function comp($a, $b)
 	{
@@ -14,16 +15,25 @@ class Girl extends Eloquent {
 	{
 		$this->movies();
 		$this->affiliates();
-		$this->dmms();
+		$this->dmmAffiliates();
+		$this->dmmMovies();
 		return $this;
 	}
 
-	public function dmms($n = null)
+	public function dmmMovies($n = null)
 	{
-		if (is_null($this->dmms)) {
-			$this->dmms = DMM::search_by_name($this->name);
+		if (is_null($this->dmmMovies)) {
+			$this->dmmMovies = DMM_Movie::search_by_name($this->name);
 		}
-		return array_get($this->dmms, $n);
+		return array_get($this->dmmMovies, $n);
+	}
+
+	public function dmmAffiliates($n = null)
+	{
+		if (is_null($this->dmmAffiliates)) {
+			$this->dmmAffiliates = DMM::search_by_name($this->name);
+		}
+		return array_get($this->dmmAffiliates, $n);
 	}
 
 	public function movies($n = null)
@@ -42,6 +52,11 @@ class Girl extends Eloquent {
 		return array_get($this->affiliates, $n);
 	}
 
+	public function dmmMaxSize()
+	{
+		return max(count($this->dmmMovies()), count($this->dmmAffiliates()));
+	}
+
 	public function maxSize()
 	{
 		return max(count($this->movies()), count($this->affiliates()));
@@ -49,6 +64,6 @@ class Girl extends Eloquent {
 
 	public function size()
 	{
-		return (int) $this->movies() + count($this->affiliates());
+		return (int) count($this->movies()) + count($this->affiliates()) + $this->year;
 	}
 }

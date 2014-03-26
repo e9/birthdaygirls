@@ -2,22 +2,27 @@
 
 @section('content')
 <div class="row">
-<h2 class="offset1 span10 bg-lightPink fg-white" style="position: relative;">
+<h2 class="bg-lightPink fg-white" style="position: relative;">
 ハッピーバースデー！{{ $girl->name}}さん
 <div class="place-right" style="position: absolute; right: 5px; top: 0;">@include('girl.social')</div>
 </h2>
 </div>
 
 <div class="row">
-<div class="offset1 span10 bg-lightPink">
-	<div class="section">
+	<div class="section bg-lightPink">
 		<h3 class="bg-white">ハッピーバースデー！{{ $girl->name}}さん<br>{{ $year - $girl->year }}歳の誕生日、おめでとうございます。</h3>
 
-		@foreach ($girl->dmms() as $thumbnail)
-		@include('dmm.thumbnail', array('thumbnail' => $thumbnail))
-		@include('girl.banner')
-		@endforeach
+		@for ($i = 0; $i < $girl->dmmMaxSize(); $i++)
+			@if ($movie = $girl->dmmMovies($i))
+			@include('dmm.movie', array('movie' => $movie))
+			@include('girl.banner')
+			@endif
+
+			@if ($affiliate = $girl->dmmAffiliates($i))
+			@include('dmm.affiliate', array('affiliate' => $affiliate))
+			@include('girl.banner')
+			@endif
+		@endfor
 	</div>
-</div>
 </div>
 @endsection

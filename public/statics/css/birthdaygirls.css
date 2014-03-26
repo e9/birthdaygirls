@@ -36,6 +36,11 @@ h3 {
 	margin: 20px 0;
 }
 
+.content.dmm_movie iframe {
+	display: block;
+	margin: auto;
+}
+
 .section .content:last-child {
 	margin-bottom: 0;
 }
@@ -67,4 +72,9 @@ h3 {
 
 .banner {
 	text-align: center;
+}
+
+.social_button .fb-like {
+	vertical-align: top;
+	margin-top: 1px;
 }
