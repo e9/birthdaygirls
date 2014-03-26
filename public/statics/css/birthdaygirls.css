@@ -81,6 +81,7 @@ h3 {
 
 .social_button .fb-like, .social_button iframe {
 	vertical-align: bottom;
+	display: inline !important;
 }
 
 a.darklink:link    { color: rgba(0, 0, 0, 0.8) !important }

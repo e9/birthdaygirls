@@ -4,21 +4,21 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class TwitterCommand extends Command {
+class CacheCommand extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'command:twitter';
+	protected $name = 'command:cache';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Twitter.';
+	protected $description = 'Command description.';
 
 	/**
 	 * Create a new command instance.
@@ -37,27 +37,12 @@ class TwitterCommand extends Command {
 	 */
 	public function fire()
 	{
-		$max = 10;
-
-		$now   = time();
-		$year  = date('Y', $now);
-		$month = date('n', $now);
-		$day   = date('j', $now);
-
-		$girls = Girl::where('month', $month)->where('day', $day)->get()->toArray();
-
-		shuffle($girls); // TODO
-
-		$count = count($girls);
-
-		$girls = array_slice($girls, 0, $max);
-
-		$str = implode(array_map(function($name){return "{$name}さん、";}, array_pluck($girls, 'name')));
-
-		if ($count > $max) $str.="ほか".($count - $max)."名の皆様、";
-		
-		$str .= "お誕生日おめでとうございます。 http://birthdaygirls.info #birthdaygirls";
-		Twitter::postTweet(array('status' => $str, 'format' => 'json'));
+		$key = $this->argument('type').'.'.$this->argument('name');
+		$cache = Cache::get($key);
+		$this->info($cache);
+		if ($this->confirm('clear? [yes|no]')) {
+			Cache::forget($key);
+		}
 	}
 
 	/**
@@ -68,7 +53,8 @@ class TwitterCommand extends Command {
 	protected function getArguments()
 	{
 		return array(
-			// array('example', InputArgument::REQUIRED, 'An example argument.'),
+			array('name', InputArgument::REQUIRED, 'name.'),
+			array('type', InputArgument::REQUIRED, 'fc2/mgs/dmm.movie/dmm.affiliate.'),
 		);
 	}
 

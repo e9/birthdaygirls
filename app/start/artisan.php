@@ -14,3 +14,4 @@
 Artisan::add(new TwitterCommand);
 Artisan::add(new BirthdayCrawlerCommand);
 Artisan::add(new PrepareCommand);
+Artisan::add(new CacheCommand);
