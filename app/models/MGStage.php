@@ -11,9 +11,11 @@ class MGStage {
 		return Cache::remember("mgs.{$name}", App::environment('production') ? 60*25 : 0, function()use($name)
 		{
 			$context = stream_context_create(array( 
-				'http'=>array( 
+				'http' => array( 
 					'method' => 'GET',
-					'header' => array("Referer: http://www.mgstage.com/\r\n"."Cookie: adc=1\r\n") 
+					'header' =>
+						"Referer: http://www.mgstage.com/\r\n".
+						"Cookie: adc=1\r\n"
 				) 
 			)); 
 
