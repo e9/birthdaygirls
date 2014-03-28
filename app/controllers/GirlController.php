@@ -15,7 +15,7 @@ class GirlController extends \BaseController {
 
 		usort($girls, array('Girl', 'comp'));
 		
-		$description = implode(array_map(function($name){return "{$name}さん、";}, array_pluck($girls, 'name'))) . "お誕生日おめでとうございます。";
+		$description = "{$month}月{$day}日が誕生日のAV女優は".implode('、', array_map(function($name){return "{$name}さん";}, array_pluck($girls, 'name'))) . "です。お誕生日おめでとうございます。";
 		View::share('description', $description);
 		View::share('subtitle', "今日が誕生日のAV女優を毎日、紹介");
 

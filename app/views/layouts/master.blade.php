@@ -12,11 +12,15 @@
 --}}
 <title>バースデーガール｜{{{@$subtitle}}}</title>
 <meta name="keywords" content="AV,AV女優,誕生日,18禁,fc2,xvideo,dmm">
-@if(isset($description))<meta name="description" content="{{{ $description }}}">@endif
+@if(isset($description))
+<meta name="description" content="{{{ $description }}}">
+@endif
 <meta name="author" content="birthdaygirls">
 <meta property="og:title" content="バースデーガール｜今日が誕生日のAV女優を毎日、紹介" />
 <meta property="og:type" content="website" />
-@if(isset($description))<meta property="og:description" content="{{{ $description }}}" />@endif
+@if(isset($description))
+<meta property="og:description" content="{{{ $description }}}" />
+@endif
 <meta property="og:url" content="http://birthdaygirls.info{{{ $root or '' }}}" />
 <meta property="og:image" content="http://birthdaygirls.info/statics/img/ogp.jpg" />
 <script>
